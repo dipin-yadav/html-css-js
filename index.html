@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Node React Demo</title>
+    <title>React Demo</title>
 </head>
 
 <body>
@@ -23,6 +23,8 @@
         function HomePage() {
             const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
 
+            const [likes, setLikes] = React.useState(0);
+
             return (
                 <div>
                     <Header title="Develop. Preview. Ship." />
@@ -31,8 +33,13 @@
                             <li key={name}>{name}</li>
                         ))}
                     </ul>
+                    <button onClick={handleClick}>Like {likes}</button>
                 </div>
             );
+
+            function handleClick() {
+                setLikes(likes + 1);
+            }
         }
 
         const root = ReactDOM.createRoot(app);
